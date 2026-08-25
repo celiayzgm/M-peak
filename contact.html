@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-Peak Coach — Apply</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-menu" id="headerMenu">
+    <div class="header-menu-inner">
+      <img class="header-menu-logo" src="assets/logo-mark.png" alt="M-Peak Coach">
+      <div class="header-menu-links">
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="methodology.html">Methodology</a>
+          <a href="results.html">Results</a>
+          <a href="about-marti.html">About Martí</a>
+        </nav>
+
+        <a href="#apply" class="btn btn-m header-cta">
+          <span>Apply Now</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-inner">
+    <a href="prototipo.html" class="logo">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="M-Peak Coach">
+      <span class="logo-tagline">High Performance Coach</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <span class="logo">
+      <img class="logo-mark" src="assets/logo-mark.png" alt="M-Peak Coach">
+      <span class="logo-tagline">High Performance Coach</span>
+    </span>
+    <button class="menu-toggle" id="menuClose" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-616,-509)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M634.53 515.53C634.823 515.237 634.823 514.763 634.53 514.47C634.237 514.177 633.763 514.177 633.47 514.47L628 519.939L622.53 514.47C622.237 514.177 621.763 514.177 621.47 514.47C621.177 514.763 621.177 515.237 621.47 515.53L626.939 521L621.47 526.47C621.177 526.763 621.177 527.237 621.47 527.53C621.763 527.823 622.237 527.823 622.53 527.53L628 522.061L633.47 527.53C633.763 527.823 634.237 527.823 634.53 527.53C634.823 527.237 634.823 526.763 634.53 526.47L629.061 521L634.53 515.53Z" fill="currentColor" /></g></g></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav-links" aria-label="Mobile primary">
+    <a href="methodology.html">Methodology</a>
+    <a href="results.html">Results</a>
+    <a href="about-marti.html">About Martí</a>
+  </nav>
+  <a href="#apply" class="btn btn-primary btn-l" style="margin-top: var(--wf-space-6);">
+    <span>Apply Now</span>
+  </a>
+</div>
+
+<main id="main">
+
+  <!-- ============================= INTRO ============================= -->
+  <section class="section hero">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="eyebrow">Apply for a spot</span>
+        <h1 class="h1">Request your assessment call</h1>
+        <p class="body-lead">This is a coaching application, not a contact form. A few questions first, so the call is worth both our time — then the calendar unlocks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPLICATION FORM ===================== -->
+  <section class="section why" id="apply">
+    <div class="section-inner">
+
+      <form class="apply-form" id="applyForm">
+        <div class="apply-step is-active" data-step="1">
+          <h3 class="h3">What's your main discipline?</h3>
+          <div class="option-list" data-question="Discipline">
+            <button type="button" class="option-pill" data-value="Cycling"><span>Cycling</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="Running"><span>Running</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="Triathlon"><span>Triathlon</span><span class="option-pill-check"></span></button>
+          </div>
+          <div class="modal-nav">
+            <button type="button" class="btn btn-primary btn-m apply-next" disabled>Next</button>
+          </div>
+        </div>
+
+        <div class="apply-step" data-step="2">
+          <h3 class="h3">Main goal in the next 6–12 months?</h3>
+          <div class="option-list" data-question="Goal">
+            <button type="button" class="option-pill" data-value="Break a PB"><span>Break a PB</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="Target race or event"><span>Target race or event</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="Increase FTP / VO2max"><span>Increase FTP / VO2max</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="Return from injury or plateau"><span>Return from injury or plateau</span><span class="option-pill-check"></span></button>
+          </div>
+          <div class="modal-nav">
+            <button type="button" class="btn btn-secondary btn-m apply-back">Back</button>
+            <button type="button" class="btn btn-primary btn-m apply-next" disabled>Next</button>
+          </div>
+        </div>
+
+        <div class="apply-step" data-step="3">
+          <h3 class="h3">Weekly training hours you can commit?</h3>
+          <div class="option-list" data-question="Weekly hours">
+            <button type="button" class="option-pill" data-value="Under 6h"><span>Under 6h</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="6–10h"><span>6–10h</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="10–15h"><span>10–15h</span><span class="option-pill-check"></span></button>
+            <button type="button" class="option-pill" data-value="15h+"><span>15h+</span><span class="option-pill-check"></span></button>
+          </div>
+          <div class="modal-nav">
+            <button type="button" class="btn btn-secondary btn-m apply-back">Back</button>
+            <button type="button" class="btn btn-primary btn-m apply-next" disabled>Next</button>
+          </div>
+        </div>
+
+        <div class="apply-step" data-step="4">
+          <h3 class="h3">Your details</h3>
+          <p class="body-s" style="margin-bottom: var(--wf-space-4);">So Martí knows who's on the call.</p>
+          <div class="input-wrap">
+            <input type="text" id="applyName" autocomplete="name">
+            <label for="applyName">Name</label>
+          </div>
+          <div class="input-wrap">
+            <input type="email" id="applyEmail" autocomplete="email">
+            <label for="applyEmail">Email</label>
+          </div>
+          <div class="input-wrap">
+            <input type="tel" id="applyPhone" autocomplete="tel">
+            <label for="applyPhone">Phone</label>
+          </div>
+          <div class="modal-nav">
+            <button type="button" class="btn btn-secondary btn-m apply-back">Back</button>
+            <button type="submit" class="btn btn-primary btn-m">
+              <span>Unlock the calendar</span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="apply-confirmation" id="applyConfirmation">
+        <h3 class="h3">You're in — pick a time</h3>
+        <p class="body">Based on your answers, here's what the call will focus on:</p>
+        <div class="modal-summary" id="applySummary"></div>
+
+        <div class="calendly-placeholder">
+          <div class="wf-media sharp size-l ratio-16-9">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-488,-253)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M496 254.25C496.414 254.25 496.75 254.586 496.75 255V255.75H503.25V255C503.25 254.586 503.586 254.25 504 254.25C504.414 254.25 504.75 254.586 504.75 255V255.78C506.286 255.908 507.504 256.44 508.362 257.365C509.346 258.425 509.75 259.885 509.75 261.5V269.092C510.372 269.896 510.75 270.902 510.75 272C510.75 272.889 510.502 273.733 510.062 274.449C509.241 275.825 507.732 276.75 506 276.75C504.909 276.75 503.9 276.385 503.097 275.75H496C494.107 275.75 492.632 275.205 491.638 274.135C490.654 273.075 490.25 271.615 490.25 270V261.5C490.25 259.885 490.654 258.425 491.638 257.365C492.496 256.44 493.714 255.908 495.25 255.78V255C495.25 254.586 495.586 254.25 496 254.25ZM495.25 258V257.286C494.065 257.407 493.264 257.818 492.737 258.385C492.121 259.049 491.777 260.035 491.752 261.34H508.248C508.223 260.035 507.879 259.049 507.263 258.385C506.736 257.818 505.935 257.407 504.75 257.286V258C504.75 258.414 504.414 258.75 504 258.75C503.586 258.75 503.25 258.414 503.25 258V257.25H496.75V258C496.75 258.414 496.414 258.75 496 258.75C495.586 258.75 495.25 258.414 495.25 258ZM491.75 270V262.84H508.25V267.818L508.215 267.799C507.556 267.45 506.802 267.25 506 267.25C503.376 267.25 501.25 269.376 501.25 272C501.25 272.808 501.455 273.579 501.823 274.25H496C494.393 274.25 493.368 273.795 492.737 273.115C492.096 272.425 491.75 271.385 491.75 270ZM506 268.75C506.973 268.75 507.841 269.178 508.436 269.854L508.437 269.855C508.944 270.437 509.25 271.184 509.25 272C509.25 272.609 509.079 273.183 508.782 273.666L508.782 273.666L508.775 273.677C508.216 274.618 507.186 275.25 506 275.25C505.178 275.25 504.437 274.95 503.873 274.444C503.866 274.437 503.859 274.431 503.852 274.425C503.609 274.222 503.395 273.968 503.228 273.682L503.218 273.666C502.921 273.183 502.75 272.609 502.75 272C502.75 270.204 504.204 268.75 506 268.75ZM508.069 271.571C508.373 271.289 508.392 270.815 508.111 270.511C507.829 270.207 507.355 270.188 507.051 270.469L505.45 271.95L504.97 271.47C504.677 271.177 504.203 271.177 503.91 271.47C503.617 271.763 503.617 272.237 503.91 272.53L504.9 273.52C505.185 273.805 505.644 273.814 505.939 273.541L508.069 271.571ZM499.995 265.7C499.443 265.7 498.995 266.148 498.995 266.7C498.995 267.252 499.443 267.7 499.995 267.7H500.004C500.557 267.7 501.004 267.252 501.004 266.7C501.004 266.148 500.557 265.7 500.004 265.7H499.995ZM495.294 266.7C495.294 266.148 495.742 265.7 496.294 265.7H496.303C496.856 265.7 497.303 266.148 497.303 266.7C497.303 267.252 496.856 267.7 496.303 267.7H496.294C495.742 267.7 495.294 267.252 495.294 266.7ZM496.294 268.7C495.742 268.7 495.294 269.148 495.294 269.7C495.294 270.252 495.742 270.7 496.294 270.7H496.303C496.856 270.7 497.303 270.252 497.303 269.7C497.303 269.148 496.856 268.7 496.303 268.7H496.294Z" fill="currentColor" /></g></g></svg>
+          </div>
+          <span class="calendly-label">Calendly booking widget</span>
+        </div>
+      </div>
+
+      <div class="apply-direct">
+        <p class="body">Questions before applying? Email Martí directly at <a href="mailto:hello@mpeakcoach.com" style="text-decoration: underline;">hello@mpeakcoach.com</a> — no automated forms, a real reply.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="section-inner footer-grid">
+    <div class="footer-brand">
+      <span class="logo logo--footer">
+        <img class="logo-mark" src="assets/logo-mark.png" alt="M-Peak Coach">
+        <span class="logo-tagline">High Performance Coach</span>
+      </span>
+      <p class="body">Personalized endurance coaching for runners, cyclists &amp; triathletes.</p>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-col-title">Support</span>
+      <a href="methodology.html#faq">FAQs</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <span class="footer-col-title">Follow</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-104,-253)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M120.548 258.214H112.452C110.664 258.214 109.214 259.664 109.214 261.452V269.548C109.214 271.336 110.664 272.786 112.452 272.786H120.548C122.336 272.786 123.786 271.336 123.786 269.548V261.452C123.786 259.664 122.336 258.214 120.548 258.214ZM120.548 257C123.007 257 125 258.993 125 261.452V269.548C125 272.007 123.007 274 120.548 274H112.452C109.993 274 108 272.007 108 269.548V261.452C108 258.993 109.993 257 112.452 257H120.548ZM116.5 261.857C114.488 261.857 112.857 263.488 112.857 265.5C112.857 267.512 114.488 269.143 116.5 269.143C118.512 269.143 120.143 267.512 120.143 265.5C120.143 263.488 118.512 261.857 116.5 261.857ZM116.5 260.643C119.183 260.643 121.357 262.817 121.357 265.5C121.357 267.465 120.174 269.236 118.359 269.987C116.544 270.739 114.455 270.324 113.065 268.935C111.676 267.545 111.261 265.456 112.013 263.641C112.764 261.826 114.535 260.643 116.5 260.643ZM121.155 261.25C120.708 261.25 120.345 260.888 120.345 260.44C120.345 259.993 120.708 259.631 121.155 259.631C121.602 259.631 121.964 259.993 121.964 260.44C121.964 260.888 121.602 261.25 121.155 261.25Z" fill="currentColor" /></g></g></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-40,-253)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M49.9265 274.387H53.6288V265.116H56.2119L56.487 262.011H53.6288C53.6288 262.011 53.6288 260.852 53.6288 260.243C53.6288 259.511 53.7752 259.222 54.4834 259.222C55.0531 259.222 56.487 259.222 56.487 259.222V256C56.487 256 54.3747 256 53.9234 256C51.1685 256 49.9265 257.213 49.9265 259.536C49.9265 261.559 49.9265 262.011 49.9265 262.011H48V265.154H49.9265V274.387Z" fill="currentColor" /></g></g></svg></a>
+        <a href="#" aria-label="Linkedin"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-168,-253)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M176.259 262.803V272.408H173.286V262.803H176.259ZM183.907 262.509C185.944 262.509 187.402 263.753 187.402 266.327V272.408H184.443V267.366C184.443 265.984 183.917 265.211 182.824 265.211C181.634 265.211 181.013 266.016 181.013 267.366V272.408H178.16V262.803H181.013V264.097C181.013 264.097 181.87 262.509 183.907 262.509ZM174.758 258C175.73 258 176.516 258.794 176.516 259.772C176.516 260.751 175.73 261.545 174.758 261.545C173.787 261.545 173 260.751 173 259.772C173 258.794 173.787 258 174.758 258Z" fill="currentColor" /></g></g></svg></a>
+        <a href="#" aria-label="Youtube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-424,-253)"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M434.04 267.997V262.359L438.995 265.178L434.04 267.997ZM445.062 260.586C444.844 259.765 444.201 259.118 443.386 258.899C441.907 258.5 435.978 258.5 435.978 258.5C435.978 258.5 430.05 258.5 428.572 258.899C427.757 259.118 427.114 259.765 426.896 260.586C426.5 262.073 426.5 265.178 426.5 265.178C426.5 265.178 426.5 268.283 426.896 269.771C427.114 270.592 427.757 271.238 428.572 271.458C430.05 271.856 435.978 271.856 435.978 271.856C435.978 271.856 441.907 271.856 443.386 271.458C444.201 271.238 444.844 270.592 445.062 269.771C445.458 268.283 445.458 265.178 445.458 265.178C445.458 265.178 445.458 262.073 445.062 260.586Z" fill="currentColor" /></g></g></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="body-s">&copy; 2026 M-Peak Coach. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
