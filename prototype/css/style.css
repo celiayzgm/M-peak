@@ -15,43 +15,148 @@
 }
 
 :root {
-/* Neutrals — escala oficial Multiplica */
---wf-0:   #FFFFFF;   /* blanco puro */
---wf-10:  #F7FAFC;   /* bg página */
---wf-20:  #EBF0F4;   /* bg surface, hover suave */
---wf-40:  #CED7E5;   /* bordes inputs, separadores */
---wf-60:  #8994A5;   /* textos secundarios, iconos, placeholders */
---wf-90:  #424B5A;   /* textos medios, labels, iconos activos */
---wf-100: #272A30;   /* textos principales, CTAs, negro */
+/* ==========================================================================
+   PRIMITIVOS DE COLOR — 7 familias, escala 100 (claro) → 1000 (oscuro).
+   Nombrados por color, no por uso. Anclas de marca exactas:
+   primary-900 (#2F1847) y secondary-500 (#FF9F1C); el resto son interpolaciones.
+   No crear pasos intermedios ni familias nuevas. No añadir tokens semánticos
+   sin acordarlo. El mapeo semántico vive (por ahora) en los --wf-* de abajo.
+   ========================================================================== */
 
-/* Semánticos */
---wf-border:        #CED7E5;  /* bordes de componentes (nivel 40) */
---wf-border-focus:  #8994A5;  /* borde en focus/hover (nivel 60) */
---wf-text-primary:  #272A30;  /* nivel 100 */
---wf-text-secondary:#424B5A;  /* nivel 90 */
---wf-text-tertiary: #8994A5;  /* nivel 60 */
---wf-text-disabled: #CED7E5;  /* nivel 40 */
+/* PRIMARY — morado, hue 269° */
+--color-primary-100:  #F2ECF9;
+--color-primary-200:  #E0D1F0;
+--color-primary-300:  #C9AFE4;
+--color-primary-400:  #AD85D6;
+--color-primary-500:  #935FC9;
+--color-primary-600:  #793EB7;
+--color-primary-700:  #603191;
+--color-primary-800:  #47246B;
+--color-primary-900:  #2F1847;
+--color-primary-1000: #190D26;
+
+/* SECONDARY — naranja, hue 35° */
+--color-secondary-100:  #FFF4E5;
+--color-secondary-200:  #FFE5C2;
+--color-secondary-300:  #FFD294;
+--color-secondary-400:  #FFBA5C;
+--color-secondary-500:  #FF9F1C;
+--color-secondary-600:  #F58D00;
+--color-secondary-700:  #C27000;
+--color-secondary-800:  #8F5200;
+--color-secondary-900:  #5C3500;
+--color-secondary-1000: #331D00;
+
+/* NEUTRAL — gris cálido, hue 60° */
+--color-neutral-100:  #F1F2EB;
+--color-neutral-200:  #E2E2DF;
+--color-neutral-300:  #CCCCC7;
+--color-neutral-400:  #B1B1A9;
+--color-neutral-500:  #99998F;
+--color-neutral-600:  #818174;
+--color-neutral-700:  #66665C;
+--color-neutral-800:  #4B4B44;
+--color-neutral-900:  #30302C;
+--color-neutral-1000: #0D0D0D;
+
+/* WARNING — ámbar, hue 45° */
+--color-warning-100:  #FFF9E5;
+--color-warning-200:  #FFF0C2;
+--color-warning-300:  #FFE494;
+--color-warning-400:  #FFD65C;
+--color-warning-500:  #FFC929;
+--color-warning-600:  #F5B800;
+--color-warning-700:  #C29100;
+--color-warning-800:  #8F6B00;
+--color-warning-900:  #5C4500;
+--color-warning-1000: #332600;
+
+/* DANGER — rojo, hue 4° */
+--color-danger-100:  #FCEAE9;
+--color-danger-200:  #F7CDC9;
+--color-danger-300:  #F2A7A1;
+--color-danger-400:  #EB7870;
+--color-danger-500:  #E44E44;
+--color-danger-600:  #D62B1F;
+--color-danger-700:  #AA2218;
+--color-danger-800:  #7D1912;
+--color-danger-900:  #50100B;
+--color-danger-1000: #2D0906;
+
+/* SUCCESS — verde, hue 145° */
+--color-success-100:  #EBF9F1;
+--color-success-200:  #D0F1DE;
+--color-success-300:  #ACE7C5;
+--color-success-400:  #81DAA6;
+--color-success-500:  #59CF8A;
+--color-success-600:  #37BE6F;
+--color-success-700:  #2C9658;
+--color-success-800:  #206F41;
+--color-success-900:  #15472A;
+--color-success-1000: #0B2817;
+
+/* INFO — azul, hue 215° */
+--color-info-100:  #E9F1FC;
+--color-info-200:  #C9DDF7;
+--color-info-300:  #A1C3F2;
+--color-info-400:  #70A3EB;
+--color-info-500:  #4487E4;
+--color-info-600:  #1F6BD6;
+--color-info-700:  #1855AA;
+--color-info-800:  #123E7D;
+--color-info-900:  #0B2850;
+--color-info-1000: #06162D;
+
+/* ==========================================================================
+   CAPA SEMÁNTICA — los --wf-* mapean sobre los primitivos --color-*.
+   Aquí es donde se decide "qué color va en qué sitio". No tocar los valores
+   hex directamente; cambiar la referencia al primitivo.
+   ========================================================================== */
+
+/* Neutros / superficies */
+--wf-0:   #FFFFFF;                      /* superficies, cards */
+--wf-10:  var(--color-neutral-100);     /* fondo de página */
+--wf-20:  var(--color-neutral-200);     /* surface, hover suave */
+--wf-40:  var(--color-neutral-300);     /* bordes, separadores */
+--wf-60:  var(--color-neutral-700);     /* texto terciario, iconos (AA 6.2:1) */
+--wf-90:  var(--color-neutral-800);     /* texto secundario, labels (AA 9.1:1) */
+--wf-100: var(--color-neutral-900);     /* texto principal (AA 13.6:1) */
+
+/* Superficie oscura (hero overlay, bloque de reserva, píldora flotante) */
+--wf-surface-dark: var(--color-primary-900);  /* morado casi-negro, marca */
+
+/* Acento de marca (naranja) */
+--wf-accent:      var(--color-secondary-500);  /* eyebrows, cifras clave, flechas CTA */
+--wf-accent-ink:  var(--color-neutral-1000);   /* texto SOBRE naranja (nunca blanco) */
+
+/* Texto / bordes semánticos */
+--wf-border:        var(--color-neutral-300);
+--wf-border-focus:  var(--color-primary-700);  /* anillo de foco con marca */
+--wf-text-primary:  var(--color-neutral-900);
+--wf-text-secondary:var(--color-neutral-800);
+--wf-text-tertiary: var(--color-neutral-700);
+--wf-text-disabled: var(--color-neutral-300);
 
 /* Acciones */
---wf-action-primary:  #272A30;  /* botón primary bg */
---wf-action-hover:    #424B5A;  /* hover primary */
---wf-action-disabled: #CED7E5;
+--wf-action-primary:  var(--color-primary-900);  /* botón primary bg */
+--wf-action-hover:    var(--color-primary-800);  /* hover primary */
+--wf-action-disabled: var(--color-neutral-300);
 
-/* Semánticos de estado (usar con moderación en wireframes) — familias completas, confirmadas en Figma */
---wf-success-100: #098423;
---wf-success-60:  #12B835;
---wf-success-20:  #CDF1D5;
---wf-success-10:  #F1FFF4;
+/* Estados (la escala vieja está invertida: -100 era el más oscuro) */
+--wf-success-100: var(--color-success-800);
+--wf-success-60:  var(--color-success-600);
+--wf-success-20:  var(--color-success-200);
+--wf-success-10:  var(--color-success-100);
 
---wf-warning-100: #D68D00;
---wf-warning-60:  #FFAA04;
---wf-warning-20:  #FFE7B8;
---wf-warning-10:  #FFFAEF;
+--wf-warning-100: var(--color-warning-800);
+--wf-warning-60:  var(--color-warning-600);
+--wf-warning-20:  var(--color-warning-200);
+--wf-warning-10:  var(--color-warning-100);
 
---wf-danger-100:  #AF061B;
---wf-danger-60:   #DD3247;
---wf-danger-20:   #FFCDD3;
---wf-danger-10:   #FFEAEC;
+--wf-danger-100:  var(--color-danger-700);
+--wf-danger-60:   var(--color-danger-500);
+--wf-danger-20:   var(--color-danger-200);
+--wf-danger-10:   var(--color-danger-100);
 
 /* Font stack */
 font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -139,7 +244,7 @@ font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-seri
    ========================================================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -172,7 +277,7 @@ img, svg { display: block; }
   font-weight: var(--wf-weight-bold);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--wf-60);
+  color: var(--wf-accent);
   margin-bottom: var(--wf-space-3);
 }
 
@@ -350,9 +455,9 @@ main { padding-top: 64px; }
 .btn-m { height: 40px; padding: 0 var(--wf-space-5); font-size: var(--wf-text-base); }
 .btn-s { height: 32px; padding: 0 var(--wf-space-4); font-size: var(--wf-text-sm); }
 
-.btn-primary { background: var(--wf-100); color: var(--wf-0); border: 1px solid transparent; }
+.btn-primary { background: var(--wf-action-primary); color: var(--wf-0); border: 1px solid transparent; }
 .btn-primary svg { color: var(--wf-0); }
-.btn-primary:hover { background: var(--wf-90); }
+.btn-primary:hover { background: var(--wf-action-hover); }
 .btn:disabled { background: var(--wf-20); color: var(--wf-60); cursor: not-allowed; }
 .btn:disabled svg { color: var(--wf-60); }
 
@@ -370,7 +475,7 @@ main { padding-top: 64px; }
   bottom: var(--wf-space-4);
   bottom: calc(var(--wf-space-4) + env(safe-area-inset-bottom));
   height: 52px;
-  background: var(--wf-100);
+  background: var(--wf-action-primary);
   color: var(--wf-0);
   font-weight: var(--wf-weight-bold);
   font-size: var(--wf-text-base);
@@ -383,6 +488,9 @@ main { padding-top: 64px; }
   z-index: 40;
 }
 .floating-cta.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+/* Invert to a light pill when the button overlaps a dark section, so it never
+   vanishes into a same-colour background (e.g. the "Let's work together" block). */
+.floating-cta.is-on-dark { background: var(--wf-0); color: var(--wf-100); }
 
 /* ==========================================================================
    Media placeholder (WMedia)
@@ -464,30 +572,6 @@ main { padding-top: 64px; }
 }
 
 /* ==========================================================================
-   Section anchor nav
-   ========================================================================== */
-.section-anchor-nav { background: var(--wf-10); margin: var(--wf-space-8) 0; }
-.section-anchor-row {
-  display: flex; gap: var(--wf-space-3);
-  overflow-x: auto;
-  padding: var(--wf-space-8) var(--wf-space-4);
-}
-.section-anchor-link {
-  display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  white-space: nowrap;
-  height: 48px;
-  padding: 0 var(--wf-space-5);
-  background: var(--wf-0);
-  border: 1px solid var(--wf-20);
-  border-radius: var(--wf-radius-full);
-  font-size: var(--wf-text-base);
-  font-weight: var(--wf-weight-bold);
-  color: var(--wf-100);
-}
-.section-anchor-link:hover { background: var(--wf-20); }
-
-/* ==========================================================================
    Social proof bar — unified strip (stats + logos, no cards)
    ========================================================================== */
 .social-proof-bar { background: var(--wf-0); border-top: 1px solid var(--wf-20); border-bottom: 1px solid var(--wf-20); }
@@ -498,12 +582,12 @@ main { padding-top: 64px; }
 }
 .proof-bar-col:nth-child(3) { grid-column: 1 / -1; }
 .proof-bar-col { text-align: center; }
-.proof-bar-col .stat-value { color: var(--wf-100); }
+.proof-bar-col .stat-value { color: var(--wf-accent); }
 .proof-bar-col .stat-label { color: var(--wf-60); }
 .stat-value { font-family: 'Bebas Neue', 'DM Sans', sans-serif; font-size: 48px; line-height: 54px; font-weight: 400; }
 .stat-label { font-size: var(--wf-text-sm); line-height: var(--wf-lh-sm); margin-top: var(--wf-space-1); }
 
-.proof-marquee-band { background: var(--wf-100); }
+.proof-marquee-band { background: var(--wf-surface-dark); }
 .proof-marquee-band .h2 { color: var(--wf-0); text-align: left; }
 
 .proof-marquee {
@@ -596,7 +680,7 @@ main { padding-top: 64px; }
 .process-number {
   width: 48px; height: 48px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: var(--wf-100);
+  background: var(--wf-action-primary);
   color: var(--wf-0);
   border-radius: var(--wf-radius-full);
   font-size: var(--wf-text-xl);
@@ -614,9 +698,9 @@ main { padding-top: 64px; }
   text-align: center;
 }
 .cta-card .body-lead { margin-left: auto; margin-right: auto; }
-.cta-block--dark { background: var(--wf-100); text-align: left; }
-.cta-block--dark .eyebrow { color: var(--wf-0); }
+.cta-block--dark { background: var(--wf-surface-dark); text-align: left; }
 .cta-block--dark .h2 { color: var(--wf-0); }
+.cta-block--dark .body-lead { color: rgba(255, 255, 255, 0.82); }
 .cta-block--dark .hero-note { color: rgba(255, 255, 255, 0.75); text-align: center; }
 .cta-block--dark .btn-primary { background: var(--wf-0); color: var(--wf-100); width: 100%; }
 .cta-block--dark .btn-primary svg { color: var(--wf-100); }
@@ -648,16 +732,9 @@ main { padding-top: 64px; }
    Case studies
    ========================================================================== */
 .case-row {
-  display: flex; gap: var(--wf-space-4);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: var(--wf-space-2);
-  margin: 0 calc(var(--wf-space-4) * -1);
-  padding-left: var(--wf-space-4); padding-right: var(--wf-space-4);
+  display: flex; flex-direction: column; gap: var(--wf-space-4);
 }
 .case-card {
-  flex: 0 0 280px;
-  scroll-snap-align: start;
   background: var(--wf-0);
   border: 1px solid var(--wf-20);
   border-radius: var(--wf-radius-lg);
@@ -670,10 +747,9 @@ main { padding-top: 64px; }
 .case-stat { display: flex; align-items: center; gap: var(--wf-space-2); margin-bottom: var(--wf-space-2); }
 .case-from { font-size: var(--wf-text-lg); line-height: var(--wf-lh-lg); color: var(--wf-60); }
 .case-arrow { color: var(--wf-60); flex-shrink: 0; }
-.case-to { font-size: var(--wf-text-2xl); line-height: var(--wf-lh-2xl); font-weight: var(--wf-weight-bold); color: var(--wf-100); }
+.case-to { font-size: var(--wf-text-2xl); line-height: var(--wf-lh-2xl); font-weight: var(--wf-weight-bold); color: var(--wf-accent); }
 .case-label { font-size: var(--wf-text-sm); color: var(--wf-60); margin-bottom: var(--wf-space-4); }
 .case-meta { display: flex; align-items: center; gap: 4px; font-size: var(--wf-text-sm); color: var(--wf-60); padding-top: var(--wf-space-4); border-top: 1px solid var(--wf-20); }
-.case-card .ghost-link { display: inline-block; margin-top: var(--wf-space-4); }
 .case-cta { display: flex; justify-content: center; margin-top: var(--wf-space-8); }
 
 /* ==========================================================================
@@ -967,7 +1043,14 @@ main { padding-top: 64px; }
    ========================================================================== */
 @media (min-width: 768px) {
   .diff-grid { grid-template-columns: repeat(2, 1fr); }
-  .case-card { flex: 0 0 320px; }
+  .case-row {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0 calc(var(--wf-space-4) * -1);
+    padding: 0 var(--wf-space-4) var(--wf-space-2);
+  }
+  .case-card { flex: 0 0 320px; scroll-snap-align: start; }
   .index-grid { grid-template-columns: repeat(2, 1fr); }
 
   .modal-overlay { align-items: center; padding: var(--wf-space-6); }
@@ -1029,11 +1112,11 @@ main { padding-top: 64px; }
     display: inline-flex;
     justify-content: center;
     min-width: 120px;
-    background: var(--wf-100);
+    background: var(--wf-action-primary);
     color: var(--wf-0);
   }
   .header-cta svg { color: var(--wf-0); }
-  .header-cta:hover { background: var(--wf-90); }
+  .header-cta:hover { background: var(--wf-action-hover); }
 
   .site-header.is-on-dark .header-menu .nav-desktop a { color: var(--wf-0); }
   .site-header.is-on-dark .header-menu .nav-desktop a:hover { color: rgba(255, 255, 255, 0.7); }
@@ -1059,8 +1142,6 @@ main { padding-top: 64px; }
   .proof-bar-grid { grid-template-columns: repeat(3, 1fr); align-items: center; gap: var(--wf-space-8); }
   .proof-bar-col:nth-child(3) { grid-column: auto; }
   .proof-bar-logos { grid-column: auto; justify-content: flex-start; padding-top: 0; border-top: 0; gap: var(--wf-space-5); }
-
-  .section-anchor-row { justify-content: center; overflow-x: visible; }
 
   .coach-grid { flex-direction: row; align-items: center; gap: var(--wf-space-12); }
   .coach-media { flex: 0 0 380px; }

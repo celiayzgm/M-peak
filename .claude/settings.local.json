@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -)",
+      "Bash(brew list *)",
+      "Bash(command -v fnm)",
+      "Bash(command -v node)",
+      "Bash(command -v npm)",
+      "Bash(npm -v)"
+    ]
+  }
+}

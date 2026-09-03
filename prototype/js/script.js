@@ -118,6 +118,39 @@ document.addEventListener('DOMContentLoaded', function () {
     pageBookCtas.forEach(function (cta) { floatingCtaObserver.observe(cta); });
   }
 
+  // Floating "Book a call" contrast — flip the pill to light colors whenever it
+  // sits over a [data-header-theme="dark"] section, so it stays visible instead
+  // of blending into a same-colored background (the "Let's work together" block).
+  var floatingThemedSections = document.querySelectorAll('[data-header-theme="dark"]');
+  if (floatingCta && floatingThemedSections.length) {
+    var PILL_BAND = 88; // ~pill height + bottom offset
+    var floatingDarkSections = new Set();
+    var floatingThemeObserver = null;
+
+    function setupFloatingCtaTheme() {
+      if (floatingThemeObserver) floatingThemeObserver.disconnect();
+      floatingDarkSections.clear();
+      var topMargin = -(window.innerHeight - PILL_BAND);
+      floatingThemeObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) floatingDarkSections.add(entry.target);
+          else floatingDarkSections.delete(entry.target);
+        });
+        floatingCta.classList.toggle('is-on-dark', floatingDarkSections.size > 0);
+      }, { rootMargin: topMargin + 'px 0px -8px 0px', threshold: 0 });
+      floatingThemedSections.forEach(function (section) {
+        floatingThemeObserver.observe(section);
+      });
+    }
+
+    setupFloatingCtaTheme();
+    var floatingThemeResizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(floatingThemeResizeTimeout);
+      floatingThemeResizeTimeout = setTimeout(setupFloatingCtaTheme, 200);
+    });
+  }
+
   // Results page — discipline filter
   var filterTabs = document.querySelectorAll('.filter-tab');
   var resultCards = document.querySelectorAll('.result-card');
